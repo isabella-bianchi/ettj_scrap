@@ -34,10 +34,10 @@ jobs:
           git push
 
 
-  armazenamento_dados:
-    name: Save data
+  data_save:
+    name: Data save
     runs on: windows-latest
-    needs: download_dados
+    needs: data_download
       steps:
       - name: Download artifact
         uses: actions/download-artifact@v3
