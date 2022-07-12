@@ -10,6 +10,8 @@ scrap_ettj <- function() {
 
   hoje <- ettj$data_coleta[1]
 
-  writexl::write_xlsx(ettj,paste0("C:/Users/e-isabella.bianchi/CNI - Confederação Nacional da Indústria/ECON - Análise econômica/5 Equipe/Sales/CurvaDeJuros/dados/","ettj_",hoje,".xlsx"))
+  assign(paste0("ettj_",hoje), ettj)
 
-}
+  rm(ettj,hoje)
+
+  }
