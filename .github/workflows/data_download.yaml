@@ -4,21 +4,21 @@ on:
 
 jobs:
   data_download:
-  name: Data Download
-runs-on: windows-latest
-env:
-  GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-steps:
-  - name: Check actions and r-lib
-- uses: actions/checkout@v3
-- uses: r-lib/actions/setup-r@v2
+    name: Data Download
+    runs-on: windows-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Check actions and r-lib
+      - uses: actions/checkout@v3
+      - uses: r-lib/actions/setup-r@v2
 
-- name: Install workflow dependencies
-run: |
-  install.packages(c("GetTDData", "writexl"))
-shell: Rscript {0}
+      - name: Install workflow dependencies
+        run: |
+          install.packages(c("GetTDData", "writexl"))
+        shell: Rscript {0}
 
-- name: Run RStudio function script
-run: |
-  source("R/scrap_ettj.R")
-shell: Rscript {0}
+      - name: Run RStudio function script
+        run: |
+          source("R/scrap_ettj.R")
+        shell: Rscript {0}
