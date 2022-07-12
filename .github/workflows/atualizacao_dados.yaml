@@ -25,14 +25,6 @@ jobs:
           source("R/scrap_ettj.R")
         shell: Rscript {0}
 
-        - name: Commit files
-        run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          git add --all
-          git commit -am "add data"
-          git push
-
 
   data_save:
     name: Data save
@@ -45,11 +37,3 @@ jobs:
           name: documento
       - name: Test download
         run: ls -R
-
-      - name: Commit files
-        run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          git add --all
-          git commit -am "add data"
-          git push
