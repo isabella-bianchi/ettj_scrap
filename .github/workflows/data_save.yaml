@@ -1,0 +1,15 @@
+on:
+  schedule:
+  - cron: "*/5 * * * *"
+
+data_save:
+  name: Data save
+runs on: windows-latest
+needs: data_download
+steps:
+  - name: Download artifact
+uses: actions/download-artifact@v3
+with:
+  name: documento
+- name: Test download
+run: ls -R
