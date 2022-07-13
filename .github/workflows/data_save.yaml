@@ -6,11 +6,12 @@ jobs:
   data_save:
     name: Data save
     runs-on: windows-latest
-    needs: data_download
+    needs: ./.github/workflows/data_download.yaml
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
           name: documento
+          path: ./logs
       - name: Test download
         run: ls -R
